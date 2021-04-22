@@ -4,7 +4,7 @@ const constants = {
       x: 32,
       y: 48,
     }
-  }
+  },
 };
 
 module.exports = constants;

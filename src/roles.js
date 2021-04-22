@@ -1,3 +1,5 @@
+const actions = require("actions");
+
 const runForCreep = (creep) => {
   switch (creep.memory.role) {
     case "harvester":
@@ -14,7 +16,13 @@ const runForCreep = (creep) => {
 
 const runForAllCreeps = () => {
   for(var name in Game.creeps) {
-    runForCreep(Game.creeps[name]);
+    let creep = Game.creeps[name];
+
+    if (creep.memory.action === undefined) {
+      actions.updateAction(creep, "harvesting");
+    }
+
+    runForCreep(creep);
   }
 };
 
