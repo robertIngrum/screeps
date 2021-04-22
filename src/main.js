@@ -1,7 +1,7 @@
-var roleHarvester = require('role.harvester');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
-var spawn = require('spawn');
+const actions = require("lib.actions");
+const roles   = require("roles");
+const spawn   = require('spawn');
+
 
 const clearOldCreepMemory = () => {
   for(var name in Memory.creeps) {
@@ -33,18 +33,20 @@ const towerLogic = () => {
 const runRoleForCreep = (creep) => {
   switch (creep.memory.role) {
     case "harvester":
-      roleHarvester.run(creep);
+      roles.harvester.run(creep);
       break;
     case "upgrader":
-      roleUpgrader.run(creep);
+      roles.upgrader.run(creep);
       break;
     case "builder":
-      roleBuilder.run(creep);
+      roles.builder.run(creep);
       break;
   }
 }
 
 module.exports.loop = function () {
+  actions.log();
+
   clearOldCreepMemory();
   spawn.run();
   towerLogic();
