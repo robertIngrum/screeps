@@ -1,4 +1,4 @@
-const tower = {
+const towers = {
   run: () => {
     var tower = Game.getObjectById('68d2fc4d6f707e7b9c883b4f');
     if(tower) {
@@ -17,4 +17,4 @@ const tower = {
   }
 }
 
-module.exports = tower;
+module.exports = towers;
