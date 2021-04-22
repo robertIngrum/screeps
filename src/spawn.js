@@ -61,8 +61,8 @@ var spawn = {
       }
     }
 
-    // showSpawnMessage();
-    logUnitCounts();
+    showSpawnMessage();
+    // logUnitCounts();
   }
 };
 
